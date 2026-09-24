@@ -1,0 +1,53 @@
+name: 提报新标签 / Request New Tag
+description: 提交一个新的规范化漫画标签
+title: "[Tag Request]: "
+labels: ["tag-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢贡献！请尽量提供清晰的英文 Key 与对应的规范中文翻译。
+  - type: input
+    id: tag_key
+    attributes:
+      label: 英文标识 (Key)
+      description: 建议小写短横线命名，如 `slice-of-life`
+      placeholder: example-key
+    validations:
+      required: true
+  - type: input
+    id: display_zh
+    attributes:
+      label: 中文展示名称
+      placeholder: 如：日常
+    validations:
+      required: true
+  - type: input
+    id: display_en
+    attributes:
+      label: 英文展示名称
+      placeholder: 如：Slice of Life
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 分类
+      options:
+        - Genre
+        - Theme
+        - Technical
+        - Demographic
+    validations:
+      required: true
+  - type: checkboxes
+    id: is_adult
+    attributes:
+      label: 分级
+      options:
+        - label: 属于成人内容 (Adult / NSFW)
+  - type: textarea
+    id: description
+    attributes:
+      label: 描述说明 (选填)
+      placeholder: 简要解释该标签的定义或常见用法

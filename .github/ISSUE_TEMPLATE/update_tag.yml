@@ -1,0 +1,46 @@
+name: 修改/纠错现有标签 / Update Existing Tag
+description: 修正现有标签的翻译、分类、描述或分级
+title: "[Tag Update]: "
+labels: ["tag-update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢协助改进数据质量！请准确填写需要修改的标签 `key`，并说明修改理由。
+  - type: input
+    id: target_key
+    attributes:
+      label: 目标标签标识 (Key)
+      description: 请填写要修改的准确 key（如 `adventure`、`slice-of-life`）
+      placeholder: exact-key-here
+    validations:
+      required: true
+  - type: checkboxes
+    id: change_scope
+    attributes:
+      label: 修改范围（勾选涉及的项目）
+      options:
+        - label: 中文译名 (display_zh)
+        - label: 英文名称 (display_en)
+        - label: 分类归属 (category)
+        - label: 分级状态 (is_adult)
+        - label: 描述定义 (description)
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_changes
+    attributes:
+      label: 建议修改内容
+      placeholder: |
+        例如：
+        - 建议将 display_zh 从“某某”改为“某某”
+        - 建议分类从 Theme-Drama 调整为 Theme-Fantasy
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 修改理由或参考来源
+      placeholder: 说明为什么当前版本不准确，或附上相关用法、辞书、平台参考链接
+    validations:
+      required: true
